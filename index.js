@@ -5,22 +5,21 @@ const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Enable CORS to allow requests from the static website
+// Enable CORS
 app.use(cors());
-
-// Serve static files (like script.js) from the "public" folder
 app.use(express.static(path.join(__dirname, "public")));
-
-// Dice roll API
-app.get("/roll-dice", (req, res) => {
-    const diceRoll = Math.floor(Math.random() * 6) + 1;
-    res.json({ result: diceRoll });
-});
 
 // Start server
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+
+// Dice roll 
+app.get("/roll-dice", (req, res) => {
+    const diceRoll = Math.floor(Math.random() * 6) + 1;
+    res.json({ result: diceRoll });
+});
+
 
 
 

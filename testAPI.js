@@ -1,5 +1,5 @@
 async function testAPI() {
-    const serverUrl = window.location.origin; // Auto-detects server URL
+    const serverUrl = window.location.origin;
 
     try {
         let response = await fetch(`${serverUrl}/roll-dice`);
