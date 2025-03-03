@@ -1,5 +1,5 @@
 async function testAPI() {
-    const serverUrl = window.location.origin;
+    const serverUrl = "http://localhost:3000";
 
     try {
         let response = await fetch(`${serverUrl}/roll-dice`);

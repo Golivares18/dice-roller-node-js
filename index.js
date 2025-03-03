@@ -5,6 +5,7 @@ const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+
 // Enable CORS
 app.use(cors());
 app.use(express.static(path.join(__dirname, "public")));
@@ -18,6 +19,10 @@ app.listen(PORT, () => {
 app.get("/roll-dice", (req, res) => {
     const diceRoll = Math.floor(Math.random() * 6) + 1;
     res.json({ result: diceRoll });
+});
+
+app.use((req, res) => {
+    res.status(404).json({ error: "Route not found" });
 });
 
 
