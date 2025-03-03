@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Dice roll API
 app.get("/roll-dice", (req, res) => {
-    const diceRoll = Math.floor(Math.random() * 6) + 1; // Random number between 1-6
+    const diceRoll = Math.floor(Math.random() * 6) + 1;
     res.json({ result: diceRoll });
 });
 
@@ -21,3 +21,22 @@ app.get("/roll-dice", (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+
+async function testAPI() {
+    const serverUrl = window.location.origin; // Auto-detects server URL
+
+    try {
+        let response = await fetch(`${serverUrl}/roll-dice`);
+
+        if (!response.ok) {
+            throw new Error("API request failed");
+        }
+
+        let data = await response.json();
+
+        document.getElementById("api-result").textContent = `API Response: ${JSON.stringify(data)}`;
+    } catch (error) {
+        document.getElementById("api-result").textContent = "Error testing API.";
+        console.error("API Test Error:", error);
+    }
+}

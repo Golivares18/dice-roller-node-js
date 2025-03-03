@@ -3,28 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dice API Test</title>
+    <title>API Test Page</title>
+    <script src="test-api.js" defer></script>
 </head>
 <body>
-    <h1>Dice API Test</h1>
-    <button onclick="testApi('/wake-up')">Wake Up Server</button>
-    <button onclick="testApi('/roll-dice')">Test Dice Roll</button>
-    <button onclick="testApi('/cors-failure')">Test CORS Failure</button>
-    <p id="response">Response will appear here...</p>
-
-    <script>
-        const serverUrl = "https://dice-roller-node-js-go-b5c8c5b0hahkcrfx.centralus-01.azurewebsites.net/fetching-from-server.html"; // Replace with your real server URL
-
-        async function testApi(endpoint) {
-            try {
-                let response = await fetch(serverUrl + endpoint);
-                let data = await response.json();
-                document.getElementById("response").textContent = JSON.stringify(data);
-            } catch (error) {
-                document.getElementById("response").textContent = "Error calling API.";
-                console.error(error);
-            }
-        }
-    </script>
+    <h1>Test Dice Roller API</h1>
+    <button onclick="testAPI()">Test /roll-dice</button>
+    <p id="api-result">API response will appear here.</p>
 </body>
 </html>
