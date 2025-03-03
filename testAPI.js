@@ -1,5 +1,5 @@
 async function testAPI() {
-    const serverUrl = "http://localhost:3000";
+    const serverUrl = "https://dice-roller-node-js-go-b5c8c5b0hahkcrfx.centralus-01.azurewebsites.net/";
 
     try {
         let response = await fetch(`${serverUrl}/roll-dice`);
